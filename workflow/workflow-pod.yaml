@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workflow-config
+  labels:
+    app: skipper-workflow
+data:
+  LOGGER_URL: http://skipper-logger:5001/api/v1/skipper/logger/log_workflow
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skipper-workflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skipper-workflow
+  template:
+    metadata:
+      labels:
+        app: skipper-workflow
+    spec:
+      containers:
+        - image: katanaml/skipper-workflow:latest
+          name: skipper-workflow
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOGGER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: workflow-config
+                  key: LOGGER_URL
+          livenessProbe:
+            httpGet:
+              path: /api/v1/skipper/workflow/
+              port: 5000
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 600
+            failureThreshold: 3
+          ports:
+            - containerPort: 5000
+              name: http
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: skipper-workflow
+spec:
+  selector:
+    app: skipper-workflow
+  ports:
+    - port: 5000

@@ -1,0 +1,11 @@
+[
+   {
+      "serving_sync":"skipper_serving"
+   },
+   {
+      "training_async":"skipper_training"
+   },
+   {
+      "mobilenet_sync":"skipper_mobilenet"
+   }
+]

@@ -1,0 +1,21 @@
+{
+    "name": "@katanaml/skipper-lib-js",
+    "version": "1.4.0",
+    "description": "Helper library for Katana ML Skipper workflow product",
+    "license": "Apache-2.0",
+    "repository": "katanaml/katana-skipper",
+    "keywords": [
+        "machine learning",
+        "docker",
+        "node",
+        "workflow",
+        "kubernetes",
+        "tensorflow",
+        "rabbitmq"
+    ],
+    "dependencies": {
+        "add-dependencies": "^1.1.0",
+        "amqplib": "^0.8.0",
+        "http": "^0.0.1-security"
+    }
+}

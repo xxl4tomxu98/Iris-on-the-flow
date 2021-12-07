@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skipper-logger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skipper-logger
+  template:
+    metadata:
+      labels:
+        app: skipper-logger
+    spec:
+      containers:
+        - image: katanaml/skipper-logger:latest
+          name: skipper-logger
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /api/v1/skipper/logger/
+              port: 5001
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 600
+            failureThreshold: 3
+          ports:
+            - containerPort: 5001
+              name: http
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: skipper-logger
+spec:
+  selector:
+    app: skipper-logger
+  ports:
+    - port: 5001

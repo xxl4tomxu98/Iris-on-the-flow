@@ -1,0 +1,208 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+.DS_Store
+services/.idea/inspectionProfiles/profiles_settings.xml
+services/.idea/inspectionProfiles/Project_Default.xml
+services/.idea/misc.xml
+services/.idea/modules.xml
+services/.idea/services.iml
+services/.idea/vcs.xml
+engine/.idea/engine.iml
+engine/.idea/modules.xml
+engine/.idea/inspectionProfiles/Project_Default.xml
+engine/.idea/inspectionProfiles/profiles_settings.xml
+services/dataservice/.idea/dataservice.iml
+services/dataservice/.idea/inspectionProfiles/profiles_settings.xml
+services/dataservice/.idea/inspectionProfiles/Project_Default.xml
+services/dataservice/.idea/modules.xml
+services/servingservice/.idea/inspectionProfiles/profiles_settings.xml
+services/servingservice/.idea/inspectionProfiles/Project_Default.xml
+services/servingservice/.idea/modules.xml
+services/servingservice/.idea/servingservice.iml
+services/trainingservice/.idea/inspectionProfiles/profiles_settings.xml
+services/trainingservice/.idea/inspectionProfiles/Project_Default.xml
+services/trainingservice/.idea/misc.xml
+services/trainingservice/.idea/modules.xml
+services/trainingservice/.idea/trainingservice.iml
+services/trainingservice/.idea/vcs.xml
+services/dataservice/.idea/vcs.xml
+engine/.idea/misc.xml
+engine/.idea/vcs.xml
+services/dataservice/.idea/misc.xml
+services/servingservice/.idea/misc.xml
+services/servingservice/.idea/vcs.xml
+event-handler/.idea/event-handler.iml
+event-handler/.idea/inspectionProfiles/profiles_settings.xml
+event-handler/.idea/inspectionProfiles/Project_Default.xml
+event-handler/.idea/misc.xml
+event-handler/.idea/modules.xml
+event-handler/.idea/vcs.xml
+eventhandler/.idea/eventhandler.iml
+eventhandler/.idea/inspectionProfiles/profiles_settings.xml
+eventhandler/.idea/inspectionProfiles/Project_Default.xml
+eventhandler/.idea/misc.xml
+eventhandler/.idea/modules.xml
+eventhandler/.idea/vcs.xml
+skipper-lib-test/.idea/inspectionProfiles/profiles_settings.xml
+skipper-lib-test/.idea/inspectionProfiles/Project_Default.xml
+skipper-lib-test/.idea/misc.xml
+skipper-lib-test/.idea/modules.xml
+skipper-lib-test/.idea/skipper-lib-test.iml
+skipper-lib-test/.idea/vcs.xml
+skipper-lib/.idea/inspectionProfiles/profiles_settings.xml
+skipper-lib/.idea/inspectionProfiles/Project_Default.xml
+skipper-lib/.idea/misc.xml
+skipper-lib/.idea/modules.xml
+skipper-lib/.idea/skipper-lib.iml
+skipper-lib/.idea/vcs.xml
+api/.idea/api.iml
+api/.idea/inspectionProfiles/profiles_settings.xml
+api/.idea/inspectionProfiles/Project_Default.xml
+api/.idea/misc.xml
+api/.idea/modules.xml
+api/.idea/vcs.xml
+api/.idea/workspace.xml
+workflow/.idea/inspectionProfiles/profiles_settings.xml
+workflow/.idea/inspectionProfiles/Project_Default.xml
+workflow/.idea/misc.xml
+workflow/.idea/modules.xml
+workflow/.idea/vcs.xml
+workflow/.idea/workflow.iml
+logger/.idea/inspectionProfiles/profiles_settings.xml
+logger/.idea/inspectionProfiles/Project_Default.xml
+logger/.idea/logger.iml
+logger/.idea/misc.xml
+logger/.idea/modules.xml
+logger/.idea/vcs.xml
+
+# Node.js
+
+services/mobilenetservice/node_modules/
+skipper-lib-js/node_modules/

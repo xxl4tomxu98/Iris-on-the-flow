@@ -1,0 +1,68 @@
+version: '3.9'
+
+services:
+  rabbitmq:
+    image: katanaml/rabbitmq-service
+    build:
+      context: ./rabbitmq
+      dockerfile: Dockerfile
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  logger:
+    image: katanaml/skipper-logger
+    build:
+      context: ./logger
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5001
+
+  workflow:
+    image: katanaml/skipper-workflow
+    build:
+      context: ./workflow
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+
+  api:
+    image: katanaml/skipper-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+
+  # Sample set of services, you should replace with your own services
+  data-service:
+    image: katanaml/data-service
+    build:
+      context: ./services/dataservice
+      dockerfile: Dockerfile
+
+  training-service:
+    image: katanaml/training-service
+    build:
+      context: ./services/trainingservice
+      dockerfile: Dockerfile
+
+  serving-service:
+    image: katanaml/serving-service
+    build:
+      context: ./services/servingservice
+      dockerfile: Dockerfile
+
+  storage-service:
+    image: katanaml/storage-service
+    build:
+      context: ./services/servingservice/storage
+      dockerfile: Dockerfile
+    container_name: storage-service
+
+  mobilenet-service:
+    image: katanaml/mobilenet-service
+    build:
+      context: ./services/mobilenetservice
+      dockerfile: Dockerfile
+  # Sample set of services, you should replace with your own services
