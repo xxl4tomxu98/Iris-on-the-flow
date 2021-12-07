@@ -1,4 +1,5 @@
 # Katana ML Skipper
+
 [![PyPI - Python](https://img.shields.io/badge/python-v3.7+-blue.svg)](https://github.com/katanaml/katana-skipper)
 [![GitHub Stars](https://img.shields.io/github/stars/katanaml/katana-skipper.svg)](https://github.com/katanaml/katana-skipper/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/katanaml/katana-skipper.svg)](https://github.com/katanaml/katana-skipper/issues)
@@ -24,7 +25,7 @@ One of the services, *mobilenetservice*, shows how to use JavaScript based micro
 
 Start:
 
-```
+``` shell
 docker-compose up --build -d
 ```
 
@@ -32,13 +33,13 @@ This will start Skipper services and RabbitMQ.
 
 Stop:
 
-```
+``` shell
 docker-compose down
 ```
 
 Web API FastAPI endpoint:
 
-```
+``` url
 http://127.0.0.1:8080/api/v1/skipper/tasks/docs
 ```
 
@@ -50,31 +51,31 @@ If you are using local Kubernetes setup, install [NGINX Ingress Controller](http
 
 Build Docker images:
 
-```
+``` shell
 docker-compose -f docker-compose-kubernetes.yml build
 ```
 
 Setup Kubernetes services:
 
-```
+``` shell
 ./kubectl-setup.sh
 ```
 
 Skipper API endpoint published through NGINX Ingress (you can setup your own host in /etc/hosts):
 
-```
+``` shell
 http://kubernetes.docker.internal/api/v1/skipper/tasks/docs
 ```
 
 Check NGINX Ingress Controller pod name:
 
-```
+``` shell
 kubectl get pods -n ingress-nginx
 ```
 
 Sample response, copy the name of 'Running' pod:
 
-```
+``` shell
 NAME                                       READY   STATUS      RESTARTS   AGE
 ingress-nginx-admission-create-dhtcm       0/1     Completed   0          14m
 ingress-nginx-admission-patch-x8zvw        0/1     Completed   0          14m
@@ -83,19 +84,19 @@ ingress-nginx-controller-fd7bb8d66-tnb9t   1/1     Running     0          14m
 
 NGINX Ingress Controller logs:
 
-```
+``` shell
 kubectl logs -n ingress-nginx -f <POD NAME>
 ```
 
 Skipper API logs:
 
-```
+``` shell
 kubectl logs -n katana-skipper -f -l app=skipper-api
 ```
 
 Remove Kubernetes services:
 
-```
+``` shell
 ./kubectl-remove.sh
 ```
 
@@ -113,25 +114,25 @@ Remove Kubernetes services:
 
 * Web API:
 
-```
+``` url
 http://127.0.0.1:8080/api/v1/skipper/tasks/docs
 ```
 
 If running on local Kubernetes with Docker Desktop:
 
-```
+``` url
 http://kubernetes.docker.internal/api/v1/skipper/tasks/docs
 ```
 
 * RabbitMQ:
 
-```
+``` url
 http://localhost:15672/ (skipper/welcome1)
 ```
 
 If running on local Kubernets, make sure port forwarding is enabled:
 
-```
+``` shell
 kubectl -n rabbits port-forward rabbitmq-0 15672:15672
 ```
 

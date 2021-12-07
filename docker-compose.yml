@@ -216,7 +216,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./nginx_config.conf:/etc/nginx/conf.d/default.conf
+      - ./conf:/etc/nginx/conf.d
     networks:
       - network1
     depends_on:
