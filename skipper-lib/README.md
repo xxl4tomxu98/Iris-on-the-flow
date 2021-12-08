@@ -18,70 +18,70 @@ Supported functionality:
 
 Version number should be updated in __init__.py and pyproject.toml
 
-1. Install Poetry
+1 Install Poetry
 
-```
+``` shell
 pip install poetry
 ```
 
-2. Add pika and requests libraries
+2 Add pika and requests libraries
 
-```
+``` shell
 poetry add pika
 poetry add requests
 ```
 
-3. Build
+3 Build
 
-```
+``` shell
 poetry build
 ```
 
-4. Publish to TestPyPI
+4 Publish to TestPyPI
 
-```
+``` shell
 poetry publish -r testpypi
 ```
 
-5. Install from TestPyPI
+5 Install from TestPyPI
 
-```
+``` shell
 pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple  skipper-lib
 ```
 
-6. Publish to PyPI
+6 Publish to PyPI
 
-```
+``` shell
 poetry publish
 ```
 
-7. Install from PyPI
+7 Install from PyPI
 
-```
+``` shell
 pip install skipper-lib
 ```
 
-8. Test imported library from CMD
+8 Test imported library from CMD
 
-```
+``` shell
 python -m skipper_lib
 ```
 
-9. Import EventReceiver
+9 Import EventReceiver
 
-```
+``` shell
 from skipper_lib.events.event_receiver import EventReceiver
 ```
 
-10. Import EventProducer
+10 Import EventProducer
 
-```
+``` shell
 from skipper_lib.events.event_producer import EventProducer
 ```
 
 ## Structure
 
-```
+``` shell
 .
 ├── LICENSE
 ├── poetry.lock

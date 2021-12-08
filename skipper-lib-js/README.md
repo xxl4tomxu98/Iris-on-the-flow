@@ -18,8 +18,8 @@ Read more - [Katana ML](https://github.com/katanaml/katana-skipper)
 
 ## Install
 
-```
-$ npm install --save @katanaml/skipper-lib-js
+``` shell
+ $npm install --save @katanaml/skipper-lib-js
 ```
 
 ## Usage
@@ -52,21 +52,21 @@ event_producer.call(this.processResponse, data, LOGGER_RECEIVER_URL, QUEUE_NAME_
 
 ## Publishing on NPM
 
-1. Set new version
+1 Set new version
 
-```
+``` shell
 npm version minor
 ```
 
-2. Publish
+2 Publish
 
-```
+``` shell
 npm publish
 ```
 
 ## Structure
 
-```
+``` shell
 .
 ├── LICENSE
 ├── package.json
