@@ -12,153 +12,153 @@ To make the API generic, there is a Worklow service, called through Requests. Ba
 
 To run all services, check instructions in main [README](https://github.com/katanaml/katana-skipper/blob/master/README.md)
 
-#### Run the service without Docker
+### Run the service without Docker
 
 1. Install libraries
 
-```
+``` shell
 pip install -r requirements.txt
 ```
 
-2. Start FastAPI
+2 Start FastAPI
 
-```
+``` shell
 uvicorn endpoint:app --reload
 ```
 
-3. Start Celery task distributed queue
+3 Start Celery task distributed queue
 
-```
+``` shell
 celery -A api.worker worker --loglevel=INFO
 ```
 
-4. Web API FastAPI endpoints
+4 Web API FastAPI endpoints
 
-```
+``` url
 http://localhost:8000/api/v1/skipper/tasks/docs
 ```
 
-#### Build individual container
+### Build individual container
 
 1. Build container
 
-```
+``` shell
 docker build --tag katanaml/skipper-api .
 ```
 
-```
+``` shell
 docker build --tag katanaml/skipper-api-celery .
 ```
 
-#### Build and run Kubernetes Pod for API
+### Build and run Kubernetes Pod for API
 
 1. Create namespace
 
-```
+``` shell
 kubectl create ns katana-skipper
 ```
 
-2. Create Pod
+2 Create Pod
 
-```
+``` shell
 kubectl apply -n katana-skipper -f api-pod.yaml
 ```
 
-3. Check Pod status
+3 Check Pod status
 
-```
+``` shell
 kubectl get -n katana-skipper pods
 ```
 
-4. Describe Pod
+4 Describe Pod
 
-```
+``` shell
 kubectl describe -n katana-skipper pods skipper-api
 ```
 
-5. Open Pod port for testing purposes
+5 Open Pod port for testing purposes
 
-```
+``` shell
 kubectl port-forward -n katana-skipper deploy/skipper-api 8000:8000
 ```
 
-6. Open Pod logs
+6 Open Pod logs
 
-```
+``` shell
 kubectl logs -n katana-skipper -f -l app=skipper-api
 ```
 
-7. Test URL
+7 Test URL
 
-```
+``` shell
 http://localhost:8000/api/v1/skipper/tasks/docs
 ```
 
-8. Check Pod service
+8 Check Pod service
 
-```
+``` shell
 kubectl get -n katana-skipper svc skipper-api
 ```
 
-9. Delete Deployment
+9 Delete Deployment
 
-```
+``` shell
 kubectl delete -n katana-skipper -f api-pod.yaml
 ```
 
-10. Delete all resources
+10 Delete all resources
 
-```
+``` shell
 kubectl delete all --all -n katana-skipper
 ```
 
-#### Build and run Kubernetes Pod for API Celery
+### Build and run Kubernetes Pod for API Celery
 
 1. Create namespace
 
-```
+``` shell
 kubectl create ns katana-skipper
 ```
 
-2. Create Pod
+2 Create Pod
 
-```
+``` shell
 kubectl apply -n katana-skipper -f api-celery-pod.yaml
 ```
 
-3. Check Pod status
+3 Check Pod status
 
-```
+``` cli
 kubectl get -n katana-skipper pods
 ```
 
-4. Describe Pod
+4 Describe Pod
 
-```
+``` cli
 kubectl describe -n katana-skipper pods skipper-api-celery
 ```
 
-5. Open Pod logs
+5 Open Pod logs
 
-```
+``` cli
 kubectl logs -n katana-skipper -f -l app=skipper-api-celery
 ```
 
-6. Delete Deployment
+6 Delete Deployment
 
-```
+``` cli
 kubectl delete -n katana-skipper -f api-celery-pod.yaml
 ```
 
-7. Delete all resources
+7 Delete all resources
 
-```
+``` cli
 kubectl delete all --all -n katana-skipper
 ```
 
 ## Structure
 
-```
+``` shell
 .
 ├── api 
 │   ├── models.py
