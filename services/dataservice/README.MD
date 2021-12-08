@@ -8,17 +8,17 @@
 
 To run all services, check instructions in main [README](https://github.com/katanaml/katana-skipper/blob/master/README.md)
 
-#### Run the service without Docker
+### Run the service without Docker
 
 1. Install libraries
 
-```
+``` shell
 pip install -r requirements.txt
 ```
 
-2. Start service
+2 Start service
 
-```
+``` shell
 python main.py
 ```
 
@@ -26,19 +26,19 @@ python main.py
 
 1. Build container
 
-```
+``` shell
 docker build --tag katanaml/data-service .
 ```
 
-2. Run container
+2 Run container
 
-```
+``` shell
 docker run -it -d --name data-service katanaml/data-service:latest
 ```
 
 ## Structure
 
-```
+``` shell
 .
 ├── app 
 │   └── data_service.py
