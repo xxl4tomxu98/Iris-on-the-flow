@@ -14,39 +14,39 @@ Katana ML, Andrej Baranovskij
 
 ![OCI](https://github.com/katanaml/katana-skipper/blob/master/gke-shell.png)
 
-3. Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke) for GKE
+3 Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke) for GKE
 
-4. Clone Skipper repo
+4 Clone Skipper repo
 
-```
+``` shell
 git clone https://github.com/katanaml/katana-skipper
 ```
 
-5. Edit rabbitmq/rabbit-statefulset.yaml file, change storageClassName to 'standard-rwo'
+5 Edit rabbitmq/rabbit-statefulset.yaml file, change storageClassName to 'standard-rwo'
 
-```
+``` shell
 vim rabbitmq/rabbit-statefulset.yaml
 ```
 
-6. Edit api/api-ingress.yaml file, remove 'host' element to configure Ingress with GKE public IP
+6 Edit api/api-ingress.yaml file, remove 'host' element to configure Ingress with GKE public IP
 
-```
+``` shell
 vim api/api-ingress.yaml
 ```
 
-7. There is no need to create Persistent Volume on GKE, it will be provisioned automatically by Volume Claim. Remove this line from kubectl-setup.sh:
+7 There is no need to create Persistent Volume on GKE, it will be provisioned automatically by Volume Claim. Remove this line from kubectl-setup.sh:
 
-```
+``` shell
 kubectl apply -f services/trainingservice/trainingservice-pv.yaml
 ```
 
-8. Edit services/trainingservice/trainingservice-pvc.yaml, change it to support dynamic provisioning for Persistent Volume, remove storageClassName
+8 Edit services/trainingservice/trainingservice-pvc.yaml, change it to support dynamic provisioning for Persistent Volume, remove storageClassName
 
-```
+``` shell
 vim services/trainingservice/trainingservice-pvc.yaml
 ```
 
-```
+``` yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -59,19 +59,19 @@ spec:
       storage: 500Mi
 ```
 
-9. There is no need to create Persistent Volume on GKE, it will be provisioned automatically by Volume Claim. Remove this line from kubectl-setup.sh:
+9 There is no need to create Persistent Volume on GKE, it will be provisioned automatically by Volume Claim. Remove this line from kubectl-setup.sh:
 
-```
+``` shell
 kubectl apply -f services/servingservice/servingservice-pv.yaml
 ```
 
-10. Edit services/servingservice/servingservice-pvc.yaml, change it to support dynamic provisioning for Persistent Volume, remove storageClassName
+10 Edit services/servingservice/servingservice-pvc.yaml, change it to support dynamic provisioning for Persistent Volume, remove storageClassName
 
-```
+``` shell
 vim services/servingservice/servingservice-pvc.yaml
 ```
 
-```
+``` yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -84,36 +84,36 @@ spec:
       storage: 500Mi
 ```
 
-11. Training service runs multiple Pods, we must assign all Pod instances to the same Kubernetes node, to make sure all instances can access Persistent Volume. Read more - [Assigning Pods to Nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
+11 Training service runs multiple Pods, we must assign all Pod instances to the same Kubernetes node, to make sure all instances can access Persistent Volume. Read more - [Assigning Pods to Nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
-```
+``` shell
 kubectl get nodes
 ```
 
-```
+``` shell
 kubectl label nodes <node-name> skipper=serving
 ```
 
-```
+``` shell
 kubectl get nodes --show-labels
 ```
 
-12. Add nodeSelector to servingservice-pod.yaml
+12 Add nodeSelector to servingservice-pod.yaml
 
-```
+``` shell
 nodeSelector:
     skipper: serving
 ```
 
-13. Setup Kubernetes services:
+13 Setup Kubernetes services:
 
-```
+``` shell
 ./kubectl-setup.sh
 ```
 
-14. Skipper API endpoint URL
+14 Skipper API endpoint URL
 
-```
+``` shell
 http://<Load Balancer IP>/api/v1/skipper/tasks/docs
 ```
 
