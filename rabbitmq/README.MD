@@ -84,7 +84,7 @@ kubectl -n rabbits port-forward rabbitmq-0 15672:15672
 
 10 RabbitMQ UI URL
 
-``` shell
+``` url
 http://localhost:15672/ (skipper/welcome1)
 ```
 

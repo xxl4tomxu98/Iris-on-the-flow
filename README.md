@@ -40,7 +40,7 @@ docker-compose down
 Web API FastAPI endpoint:
 
 ``` url
-http://127.0.0.1:8080/api/v1/skipper/tasks/docs
+http://127.0.0.1:8000/api/v1/skipper/tasks/docs
 ```
 
 #### Kubernetes
